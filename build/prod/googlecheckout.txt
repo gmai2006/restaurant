@@ -1,0 +1,9 @@
+<bean id="merchantInfo" class="com.exam.google.checkout.ExamMerchantInfo">
+		<property name="merchantId" value="169911767271861" />
+		<property name="merchantKey" value="cMP0-aU0hLY_b-vFqBKr5w"/>
+		<property name="env" value="Production"/>
+		<property name="currencyCode" value="USD"/>
+		<property name="checkoutUrl" value="https://checkout.google.com/api/checkout/v2/checkout/Merchant/169911767271861"/>
+		<property name="merchantCheckoutUrl" value="https://checkout.google.com/api/checkout/v2/merchantCheckout/Merchant/169911767271861"/>
+		<property name="requestUrl" value="https://checkout.google.com/api/checkout/v2/request/Merchant/169911767271861"/>
+	</bean>

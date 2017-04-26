@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<!--
+  - Application context definition for "springapp" DispatcherServlet.
+  -->
+
+<beans>
+
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+       <property name="basename" value="messages"/>
+	</bean>
+	
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+          <property name="host" value="${stmp.host}"></property>
+          <property name="port" value="25"></property>
+          <property name="username" value="${stmp.user}"></property>
+          <property name="password" value="${stmp.password}"></property>
+			<property name="javaMailProperties">
+				<props>
+					<prop key="mail.smtp.auth">true</prop>
+				</props>
+			</property> 
+	</bean>
+
+	<!-- this is a template message that we can pre-load with default state -->
+	<bean id="templateMessage" class="org.springframework.mail.SimpleMailMessage">
+	  <property name="from" value="${stmp.from}"/>
+	  <property name="to" value="${stmp.to}"/>
+	  <property name="subject" value="${stmp.subject}"/>
+	</bean>
+
+
+   <bean id="javaMailSession" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+    <property name="targetClass"><value>javax.mail.Session</value></property>
+    <property name="targetMethod"><value>getDefaultInstance</value></property>
+    <property name="arguments">
+      <list>
+        <props>
+          <prop key="mail.smtp.auth">true</prop>
+          <prop key="mail.smtp.host">${stmp.host}</prop>
+          <prop key="mail.smtp.port">25</prop>
+          <prop key="mail.smtp.user">${stmp.user}</prop>
+          <prop key="mail.smtp.password">${stmp.password}</prop>
+        </props>
+      </list>
+    </property>
+  </bean>
+   
+
+	
+	<bean id="mainController" class="com.hosting.spring.ClientRedirectController">
+		<property name="successPage" value="template.jsp?name=" /> 
+		<property name="successPage2" value="template2.jsp?name=" /> 
+		<property name="failurePage" value="template.jsp?name=login_body.jsp" />
+		<property name="fullPage" value="admin.xhtml, login.xhtml, editor.xhtml" />   
+    </bean>
+    
+    <bean id="logoutController" class="com.hosting.spring.LogoutController">
+		<property name="successPage" value="template.jsp?name=index_body.jsp" /> 
+		<property name="failurePage" value="template2.jsp?name=login_body.jsp" />
+    </bean>
+    
+    <bean id="saveContentController" class="com.hosting.spring.SaveContentController">
+		<property name="successPage" value="admin-editor.xhtml" /> 
+		<property name="failurePage" value="admin-editor.xhtml" />
+    </bean>
+    
+    <bean id="viewFileController" class="com.hosting.spring.ViewFileController">
+		<property name="successPage" value="admin-file-manager.xhtml" /> 
+		<property name="failurePage" value="admin-file-manager.xhtml" />
+    </bean>
+    
+    <bean id="manageFileController" class="com.hosting.spring.ManageFileController">
+		<property name="successPage" value="admin-file-manager.xhtml" /> 
+		<property name="failurePage" value="admin-file-manager.xhtml" />
+    </bean>
+    
+    <bean id="fileUploadController" class="com.hosting.spring.FileUploadController">
+		<property name="mailSender" ref="mailSender"/>
+  		<property name="templateMessage" ref="templateMessage"/>
+  		<property name="messageSource" ref="messageSource"/>
+		<property name="successPage" value="admin-file-manager.xhtml"/>
+		<property name="failurePage" value="admin-file-manager.xhtml"/>
+    </bean>
+    
+    
+    
+    <bean id="contactController" class="com.hosting.spring.ContactController">
+		<property name="mailSender" ref="mailSender"/>
+  		<property name="templateMessage" ref="templateMessage"/>
+  		<property name="messageSource" ref="messageSource"/>
+		<property name="successPage" value="template.jsp?name=contact_body.jsp" /> 
+		<property name="failurePage" value="template.jsp?name=contact_body.jsp" /> 
+    </bean>
+    
+    
+     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<property name="viewClass">
+        <value>org.springframework.web.servlet.view.JstlView</value>
+        </property>	
+        <property name="prefix"><value>/WEB-INF/jsp/</value></property>
+    </bean>  
+    
+    
+    <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+	 		    <prop key="*.xhtml">mainController</prop>
+	 		    <prop key="logout.asp">logoutController</prop>
+	 		    <prop key="saveContent.asp">saveContentController</prop>
+	 		    <prop key="contact.asp">contactController</prop>  
+	 		    <prop key="viewFile.asp">viewFileController</prop>
+	 		    <prop key="manageFile.asp">manageFileController</prop>
+	 		    <prop key="upload.asp">fileUploadController</prop>   
+            </props>
+        </property>
+    </bean>    
+
+   
+</beans>

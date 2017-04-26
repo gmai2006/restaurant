@@ -1,0 +1,127 @@
+﻿body { width: 100%; height: 100%; font-family: Arial; font-size: 13px; color: #474747; background:url(images/main-bg.jpg) 50% 0px repeat; padding: 50px 0px; }
+
+input, select, textarea { font-family: Arial; font-size: 13px; background: transparent; color: #474747; }
+
+* {margin:0px; padding:0px; border:0px;}
+
+/** img {display:block;} **/
+
+.main { position: relative; width: 980px; margin: 0px auto; text-align: left; background-color: #FFFFFF; }
+
+    .header { position: relative; height: 104px; overflow: hidden; padding-top: 30px; border-bottom: 4px solid #ff4800; }
+
+        .top-links { position: relative; text-align: right; color: #dfd7d4; font-size: 11px; padding-right: 30px; text-transform: uppercase; }
+        .top-links a { color: #a89f9b; text-decoration: none; }
+        .top-links a:hover { text-decoration: underline; }
+
+        .logo { display: block; position: absolute; top: 53px; left: 29px; z-index: 1; }
+
+        ul.main-menu { position: relative; list-style: none; float: right; overflow: hidden; margin-top: 50px; z-index: 100; }
+        ul.main-menu li { position: relative; float: left; margin-right: 30px; text-transform: capitalize; }
+        ul.main-menu li a { position: relative; display: block; float: left; font: 16px Trebuchet MS; background:url(images/menu-arr.gif) 100% -7px no-repeat; color: #9f938e; text-align: center; padding-right: 10px; text-decoration: none; }
+        ul.main-menu li a:hover, ul.main-menu li a.act { background:url(images/menu-arr.gif) 100% 10px no-repeat; color: #ff4800; }
+        
+        .header-block { position: relative; width: 100%; height: 480px; margin-top: 1px; }
+        .header-block ul#featured-content { position: relative; list-style: none; height: 480px; }
+        .header-block ul#featured-content li { position: absolute; top: 0px; left: 0px; height: 348px; }
+        .header-block ul#featured-content li .info-block { position: relative; padding: 15px 20px 25px 0px; margin: 1px -20px 0px 0px; }
+            .shadow { position: absolute; bottom: 0px; left: 0px; width: 100%; height: 131px; padding-right: 20px; background-color: #220f08; }
+            .shadow img { position: absolute; bottom: -19px; right: 0px; }
+        .header-block ul#featured-content li .info-block h1 { display: block; font: normal 24px Trebuchet MS; color: #FFFFFF; padding: 0px 0px 15px 20px; margin-bottom: 15px; border-bottom: 1px solid #3b322f; text-transform: none; }
+        .header-block ul#featured-content li .info-block p { color: #887e7b; padding: 0px 250px 0px 20px; }
+            .info-block a.rmore { display: block; float: right; position: relative; font: 16px Trebuchet MS; color: #FFFFFF; background:url(images/rmore-arr.jpg) 100% 7px no-repeat; padding-right: 15px; margin: -25px 30px 0px; text-decoration: none; }
+            .info-block a.rmore:hover { text-decoration: underline; }
+
+            ul.tabs { position: absolute; list-style: none; top: 372px; right: 17px; z-index: 100; }
+            ul.tabs li { position: relative; width: 14px; height: 15px; float: left; margin-right: 7px; }
+            ul.tabs li a { display: block; width: 14px; height: 15px; float: left; background:url(images/slide-dot.gif) -21px 0px no-repeat; }
+            ul.tabs li a:hover, ul.tabs li.act a { background:url(images/slide-dot.gif) 0px 0px no-repeat; }
+            
+        .threecolls-block { position: relative; width: 100%; border: 1px solid #e6e6e6; border-left: none; border-right: none; padding: 20px 0px 36px; margin-top: 20px; overflow: hidden; }
+        .threecolls-block ul { position: relative; list-style: none; width: 110%; overflow: hidden; }
+        .threecolls-block ul li { position: relative; float: left; width: 285px; margin-right: 35px; color: #6c7059; overflow: hidden; }
+        .threecolls-block ul li h2 { color: #242424; font: bold 14px Trebuchet MS; color: #260e05; margin-bottom: 15px; text-transform: uppercase; }
+        .threecolls-block ul li .more { display: block; width: 70px; height: 30px; font: 12px/30px Trebuchet MS; text-transform: uppercase; color: #FFFFFF; background-color: #ff4800; text-align: center; text-decoration: none; margin-top: 25px; }
+
+        .box { position: relative; padding: 0px 30px; }
+   
+    .content { position: relative; padding: 40px 0px 50px; }
+   
+    h1 { display: block; font: bold 24px Trebuchet MS; color: #260e05; text-transform: uppercase; margin-bottom: 35px; }
+    h2 { display: block; font: normal 18px Arial; color: #ff4800; margin-bottom: 10px; }
+    h3 { display: block; font: normal 13px Arial; color: #ff4800; }
+    a { color: #ff4800; text-decoration: underline; }
+    .content a:hover { text-decoration: none; }
+    .content p { line-height: 20px; }
+    .content p span { color: #a48b80; }
+    .cont-img.left { margin-right: 15px; }
+    .more { color: #ff4800; font-style: italic; }
+    .read-more { color: #9f938e; }
+    
+      ul.news-list { position: relative; width: 100%; list-style: none; margin-bottom: -20px; overflow: hidden; }
+      ul.news-list li { position: relative; border-top: 1px dashed #949494; margin: -26px 0px 25px; padding: 25px 0px 25px; }
+
+      ul.menu { position: relative; width: 110%; padding-bottom: 10px; overflow: hidden; }
+      ul.menu li { position: relative; width: 190px; border: 1px solid #e6deda; float: left; background:url(images/menu-list-bg.jpg) 50% 50% repeat; padding: 17px 0px; margin: 14px 16px 0px 0px; overflow: hidden; text-align: center; border-radius: 4px; -moz-border-radius: 4px; -wekit-border-radius: 4px; behavior: url(PIE.htc); }
+      ul.menu li img { border: 1px solid #FFFFFF; margin: 0px auto 10px auto; }
+      ul.menu li p { line-height: 20px; color: #a7a081; }
+      ul.menu li p span { display: block; color: #393525; }
+      
+      ul.list { position: relative; list-style: none; width: 100%; }
+      ul.list li { position: relative; float: none; width: auto; background:url(images/bull.gif) 3px 7px no-repeat; padding: 0px 0px 11px 12px; font-family: Times New Roman; font-size: 14px; vertical-align: top; height: 1%; }
+            
+      .sideblock { position: relative; width: 308px; }
+      .sideblock-right { position: relative; width: 296px; float: right; }
+      .contact-right { position: relative; width: 314px; float: right; }
+    
+      .container { position: relative; width: 591px; }
+      .container-left { position: relative; width: 608px; float: left; overflow: hidden; }
+      .contact-left { position: relative; width: 600px; float: left; overflow: hidden; }
+      
+      .column { position: relative; width: 46%; float: left; }
+      
+      .dish-box { position: relative; width: 294px; border: 1px solid #e6deda; float: left; background:url(images/menu-list-bg.jpg) 50% 50% repeat; padding: 17px 0px; margin-right: 20px; overflow: hidden; border-radius: 4px; -moz-border-radius: 4px; -wekit-border-radius: 4px; behavior: url(PIE.htc); }
+      .dish-box img { border: 1px solid #FFFFFF; margin: 0px auto 10px auto; }
+      .dish-box p { line-height: 20px; color: #a7a081; }
+      .dish-box p span { display: block; color: #393525; }
+           
+        .contact-block { display: block; width: 70%; padding: 27px 20px; font-size: 12px; line-height: 20px; color: #1f1f1f; }
+        .contact-block p span { float: left; color: #1f1f1f; }
+        .contact-block p { display: block; padding: 0px; overflow: hidden; text-align: right; }
+        .contact-block a { color: #ff4800; font-style: italic; }
+        .cont-form .hldr { width: 100%; margin-bottom: 6px; }
+        
+            .inparea { position: relative; display: block; width: 100%; overflow: hidden; }
+            .inparea .text-field { position: relative; width: 106px; font-size: 13px; float: left; line-height: 30px; color: #220f08; text-indent: 16px; }
+            .inparea .input-field { position: relative; float: left; width: 468px; border: 1px solid #dfd0ca; background-color: #f0eae7; padding: 7px 10px; }
+            .inparea .input-field input { width: 100%; position: relative; float: left; height: 18px; line-height: 20px; }
+                
+            .inparea.textarea .text-field { float: left; white-space: nowrap; }
+            .inparea.textarea textarea { position: relative; float: left; width: 468px; height: 260px; line-height: 14px; border: 1px solid #dfd0ca; background-color: #f0eae7; padding: 7px 10px; }
+          
+            .submit-but { float: right; width: 76px; height: 30px; border: 1px solid #ae5e00; background-color: #ff4800; font: 15px Times New Roman; color: #FFFFFF; margin: 13px 4px 0px 7px; cursor: pointer; }
+            .clear-but { float: right; width: 76px; height: 30px; border: 1px solid #9f9f9f; background-color: #c9b8b1; font: 15px Times New Roman; color: #FFFFFF; margin: 13px 4px 0px 7px; cursor: pointer; }
+                                
+        .text-block { position: relative; padding-top: 20px; }
+
+      .footer { position: relative; padding: 15px 30px; background-color: #220f08; font-size: 11px; text-transform: uppercase; color: #9f938e; }
+      .footer a { color: #FFFFFF; text-decoration: none; }
+      .footer a:hover { text-decoration: underline; }
+        
+.left, .l {position: relative; float:left !important;}
+.right, .r {position: relative; float:right !important;}
+
+.width50 { width: 45%; }
+
+.centered { text-align: center; }
+.centered a { display: inline-block; margin: 0px auto; }
+.centered.expnd a { display: block; }
+.centered.expnd a span { float: none; }
+.centered img { margin: 0px auto; }
+
+.tright { text-align: right; }
+
+.clearfix {overflow:hidden;}
+* html .clearfix {overflow:visible; height:1%;}
+.clear { clear: both; }
+.border {border:1px solid red;}

@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+
+<project name="restaurant" default="war" basedir="./">
+
+  
+	<!-- App name-dependent settings. -->
+	<property name="build.src" location="./src"/>
+	<property name="build.classes" location="./WEB-INF/classes"/>
+	<property name="build.dir" location="./WEB-INF/"/>
+	<property name="classes.path" location="./WEB-INF/lib"/>
+	<property name="appname" value="ROOT"/>
+	<property name="tomcat.path" location="../../apache-tomcat/lib/"/>
+  
+
+	<path id="local_lib">
+		 <fileset dir="${classes.path}" includes="*.jar"/>
+		<fileset dir="${tomcat.path}/spring" includes="*.jar"/>
+		<fileset dir="${tomcat.path}" includes="servlet-api.jar"/>
+		<pathelement location="${build.classes}/"/>
+	</path>
+
+	<!--- project build starts here -->
+	<target name="prepare">
+		<delete dir="${build.classes}/com"/>
+		<copy file="${basedir}/src/com/hosting/middle/hibernate.hbm.xml" tofile="${build.classes}/com/hosting/middle/hibernate.hbm.xml"/>
+	</target>
+
+	<target name="compile" depends="prepare">
+		<javac destdir="${build.classes}" 
+			debug="on">
+			<exclude name="**/*Test*.java" />
+			<exclude name="**/test/*Test*.java" />
+			<classpath refid="local_lib" />
+			<src path="${build.src}"/>
+		</javac>
+	</target>
+	
+	<target name="jar" depends="compile">
+		<jar destfile="${classes.path}/tringvuong.jar"
+       basedir="${build.classes}"
+       excludes="**/Test.class"/>
+	</target>
+
+	<target name="war"  >
+		<war  warfile="${appname}.war" webxml="./WEB-INF/web.xml">
+			<fileset dir="${basedir}" includes="*.css, *.xhtml, *.html, *.xml, *.jsp, *.ico"/>
+			<zipfileset dir="${basedir}/images"  prefix="images"/>
+			<zipfileset dir="${basedir}/js"  prefix="js"/>
+			<zipfileset dir="${basedir}/styles"  prefix="styles"/>
+			<zipfileset dir="${basedir}/fckeditor"  prefix="fckeditor"/>
+			<zipfileset dir="${basedir}/WEB-INF" prefix="WEB-INF" excludes="web.xml"/>
+		</war>
+	
+	
+	</target>
+	
+
+	<target name="sendfiles">
+	<input
+    message="Please enter username:"
+    addproperty="scp.user"
+  />
+  
+  <input
+    message="Please enter password for 220:"
+    addproperty="scp.password"
+  />
+  
+ <input
+    message="Please production ip:(200)"
+    addproperty="scp.ip"
+  />
+		<scp sftp="true" file="${basedir}/${appname}.war" todir="${scp.user}:${scp.password}@192.168.1.${scp.ip}:/home/tomcat/servers/htran58/tomcat/webapps/" trust="true"/>
+	</target>
+		
+</project>
+
+

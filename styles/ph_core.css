@@ -1,0 +1,40 @@
+@charset "utf-8";
+
+
+/**
+td td, th th, th td, td th { font-size: 100%;}
+pre { font-size: 110%;}
+form { padding:0; margin:0;}
+*/
+.gtb{
+  background:#ebeff9;
+  border-bottom:1px solid #6b90da;
+  padding:5px 10px 0 5px;
+  white-space:nowrap;
+  font:82% arial,sans-serif;
+}
+
+.gtb .tab {
+  color:#00c;
+  cursor:pointer;
+  float:left;
+  margin:5px 15px 6px 10px;
+}
+
+.gtb .active{
+  background:#fff;
+  border:1px solid #6b90da;
+  border-bottom:0;
+  color:#000;
+  cursor:default;
+  font-weight:bold;
+  margin:0 5px -1px 0;
+  padding:5px 9px 6px;
+  text-decoration:none
+}
+
+.gtb .gtbc{
+  clear:left;
+}
+
+
